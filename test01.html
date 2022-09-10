@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+
+<body>
+  <h1>BingMaps TEST</h1>
+  
+<!-----------Direction Module入手---------------->
+<!------Bingmapsのルート検索機能追加------------->
+  <div class="directionsContainer">
+    <div id="directionsPanel"></div>
+    <div id="directionsItinerary"></div>
+  </div>
+
+  <!-- MAP[START] -->
+  <div id="myMap"  style='width:60%;height:70%;float:left;'></div>
+  <!-- MAP[END] -->
+
+<!----------スタート、ストップボタン追加----------------->
+  <button id="start_btn">スタート</button>
+  <button id="stop_btn">ストップ</button>
+   <!-----00:ルート表示ボタンを追加------->
+   <button id="write_btn">ルート表示</button>
+</body>
+
+  <!------bingmaps起動-------------->
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AhbZO9J2FSCJhMML4v4PSiwVRcxOnFJg29zOgPZn9MNRsvwKKnFZyDhZZg7J9Cyy' async defer></script>
+<script src="test01.js"></script>
+</html>
