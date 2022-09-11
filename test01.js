@@ -6,7 +6,12 @@ function mapsInit(position) {
   map = new Microsoft.Maps.Map('#myMap', {
           center: new Microsoft.Maps.Location(lat, lon), 
           mapTypeId: Microsoft.Maps.MapTypeId.load, 
-          zoom: 15
+          zoom: 15,
+   //----------①地図上の機能ボタンを非表示-------------//
+          showZoomButtons:false,    
+          showMapTypeSelector:false,
+          showScalebar:false,
+          showTermsLink:false
       });
   pushpin(lat,lon,map);
 
@@ -15,9 +20,15 @@ function mapsInit(position) {
   Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
     directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
   directionsManager.setRenderOptions({itineraryContainer:'#directionsItinerary'});
-    directionsManager.showInputPanel('directionsPanel');
+    // directionsManager.showInputPanel('directionsPanel');
+
+    //----------③中継点の座標ピンの非表示-------------//
+    directionsManager.setRenderOptions({
+      firstWaypointPushpinOptions:{visible:true},
+      lastWaypointPushpinOptions:{visible:true},
+      waypointPushpinOptions:{visible:false}
+    });
   });
-//------------------------------------------------------
 }
 
 //-----現在地にピンを描画--------------
@@ -69,7 +80,7 @@ $("#start_btn").on('click',function(){
     let value = lat+","+lon;
     localStorage.setItem(key,value);
     key++;
-  },5000);
+  },60000);
 });
 
 //--------------------ルート記録ストップ-------------------
